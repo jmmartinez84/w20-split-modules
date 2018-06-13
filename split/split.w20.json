@@ -1,0 +1,38 @@
+{
+    "id": "split",
+    "name": "W20 split fragment",
+
+    "modules": {
+        "content": {
+            "path": "{split}/modules/split",
+            "autoload": true
+        }
+    },
+
+    "i18n": {
+        "en": ["{split}/i18n/messages-en.json"],
+        "fr": ["{split}/i18n/messages-fr.json"]
+    },
+
+    "routes": {
+        "content":{
+            "templateUrl":"{split}/views/content.html",
+            "controller":"ContentController"
+        }
+    },
+    "requireConfig" : {
+        "paths": {
+            "{split-content}": "/split/modules/controllers/content",
+            "{split-version}":"/split/modules/filters/version",
+            "{split-data}":"/split/modules/services/data",
+            "{split-module}":"split"
+        },
+
+        "shim" : {
+              "{split-module}": {
+                    "deps": ["{angular}/angular","{split-content}","{split-version}","{split-data}"],
+                   "exports": "split"
+              }
+          }
+      }
+}
